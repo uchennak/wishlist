@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Index</title>
+
+    
+  </head>
+  <body>
+        <a href='/logout'>Logout</a>
+        <a href='/'>Home</a>
+
+    <h2>{{item.item_name}}</h2>
+    <p>Users who added this product under their wish list</p>
+    {% for x in item.wishlisted_by.all %}
+      {{x.name}}
+      <p></p>
+    {% endfor %} 
+    
+      </body>
+      </html>
