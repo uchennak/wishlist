@@ -7,48 +7,17 @@
     <title>Index</title>
      
   </head>
+  
   <body>
-      Hello {{user.name}}!
+    <div id='quick_wrapper'>
 
-<p>Your Wish List</p>
-<a href='/show_create_item'>Create Item</a>
-<br>
-<table>
-    <tr>
-        <th>Item</th>
-        
-        <th>Added By</th>
-      
-       
-        <th>Date Added</th>
-        <th>Action</th>
-       
-    </tr>
-    {% for x in wishlisted_items %}
-    
-    <tr> 
-       
-        <td><a href="/display_item/{{x.id}}">{{x.item_name}}</a></td>
-        <td>{{x.creator.name}}</td>
-        <td>{{x.created_at}}</td>
-        {% if request.session.user_id != x.creator.id %}
-        <td><a href ="/remove_item/{{x.id}}">Remove from wishlist</a>
-        {% endif %}
+        <div id='your_wishlist' class='wishlists'>
+            <p>Hello {{user.name}}!</p>
 
-        {% if request.session.user_id == x.creator.id %}
-        <td><a href ="/remove_item/{{x.id}}">Remove from wishlist</a>|<a href ="/delete_item/{{x.id}}">Delete Item</a>
-        {% endif %}
-        
-           
-    </td>
-    {% endfor %}  
-       
-    </tr>
-
-
-    </table>
-    <p>Others Wish Lists</p>
-    <table>
+            <p>Your Wish List</p>
+            <a href='/show_create_item'>Create Item</a>
+            <br>
+            <table>
             <tr>
                 <th>Item</th>
                 
@@ -59,23 +28,72 @@
                 <th>Action</th>
                
             </tr>
-            {% for x in all_items %}
-            {% if request.session.user_id != x.creator.id %}
+            {% for x in wishlisted_items %}
             
             <tr> 
                
                 <td><a href="/display_item/{{x.id}}">{{x.item_name}}</a></td>
                 <td>{{x.creator.name}}</td>
                 <td>{{x.created_at}}</td>
-                <td><a href ="/add_to_wishlist/{{x.id}}">Add to my wishlist</a>
+                {% if request.session.user_id != x.creator.id %}
+                <td><a href ="/remove_item/{{x.id}}">Remove from wishlist</a>
+                {% endif %}
+        
+                {% if request.session.user_id == x.creator.id %}
+                <td><a href ="/remove_item/{{x.id}}">Remove from wishlist</a>|<a href ="/delete_item/{{x.id}}">Delete Item</a>
+                {% endif %}
+                
                    
             </td>
-            {% endif %}
             {% endfor %}  
                
             </tr>
+        
+           
+        
+            
             </table>
-        <br>
-        <a href='/logout'>Logout</a>
+        </div>
+
+        <div id='other_wishlist' class='wishlists'>
+            <p>Others Wish Lists</p>
+            <table>
+                    <tr>
+                        <th>Item</th>
+                        
+                        <th>Added By</th>
+                      
+                       
+                        <th>Date Added</th>
+                        <th>Action</th>
+                       
+                    </tr>
+                    {% for x in all_items %}
+                    {% if request.session.user_id != x.creator.id %}
+                    
+                    <tr> 
+                       
+                        <td><a href="/display_item/{{x.id}}">{{x.item_name}}</a></td>
+                        <td>{{x.creator.name}}</td>
+                        <td>{{x.created_at}}</td>
+                        <td><a href ="/add_to_wishlist/{{x.id}}">Add to my wishlist</a>
+                           
+                    </td>
+                    {% endif %}
+                    {% endfor %}  
+                       
+                    </tr>
+                    </table>
+                <br>
+                
+                <a id='logout' href='/logout'>Logout</a>
+        </div>
+        
+    </div>
+        
+
+
+    
+    
         </body>
         </html>

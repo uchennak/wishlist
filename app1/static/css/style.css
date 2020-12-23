@@ -1,3 +1,11 @@
+*{
+  margin: 0px;
+  padding: 0px;
+ }
+body{
+  background-image: url("https://images.pexels.com/photos/158771/notebook-pen-table-blank-158771.jpeg");
+  background-size: 100%;
+}
 table {
     display: inline-block;
     border-collapse: collapse;
@@ -13,3 +21,35 @@ table {
     padding: 5px;
   }
 
+#quick_wrapper{
+  display:block;
+  width:auto;
+  background-color: teal;
+  padding: 20px;
+  margin:20px;
+  border: 3px solid black;
+
+}
+
+div{
+  background-color: white;
+ 
+  
+
+}
+
+.wishlists {
+padding:18px;
+}
+
+.wishlists *{
+
+  padding:5px;
+
+}
+#logout{
+  background-color: white;
+  padding: 10px;
+  display: inline-block;
+  
+}
