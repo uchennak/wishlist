@@ -3,13 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>Index</title>
-    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     
     
   </head>
   <body>
+    <div class='display_and_create'>
+
       <a href='/logout'>Logout</a>
-      <a href='/'>Home</a>
+        <hr>
+        <a href='/'>Home</a>
+        <hr>
       <h2>Create a new Wishlist item</h2>
         <form action="/create_item" method="post">
             {% csrf_token %}
@@ -17,5 +22,7 @@
             
             <button type="submit">Create</button>
         </form>
+      
+    </div>
   </body>
       </html>

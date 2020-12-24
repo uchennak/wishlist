@@ -3,19 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title>Index</title>
-
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     
   </head>
   <body>
+    <div class='display_and_create'>
         <a href='/logout'>Logout</a>
+        <hr>
         <a href='/'>Home</a>
-
+        <hr>
+        <br>
     <h2>{{item.item_name}}</h2>
-    <p>Users who added this product under their wish list</p>
+    <br>
+    <p>Users who added this product under their wish list:</p>
+    
+    <br>
     {% for x in item.wishlisted_by.all %}
       {{x.name}}
       <p></p>
     {% endfor %} 
+  </div>
     
       </body>
       </html>

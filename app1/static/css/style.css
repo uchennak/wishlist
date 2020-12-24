@@ -27,7 +27,8 @@ table {
   background-color: teal;
   padding: 20px;
   margin:20px;
-  border: 3px solid black;
+  border: 7px solid black;
+  border-radius: 4px;
 
 }
 
@@ -52,4 +53,12 @@ padding:18px;
   padding: 10px;
   display: inline-block;
   
+}
+
+.display_and_create{
+  width:auto;
+  border: 7px solid black;
+  border-radius: 4px;
+  display: inline-block;
+  padding: 20px;
 }
